@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<kerdes>
+<kerdesr>
+<ksor>1</ksor>
+<kszoveg>Egyetért-e Ön azzal, hogy ez itt az első kérdés?</kszoveg>
+</kerdesr>
+<kerdesr>
+<ksor>2</ksor>
+<kszoveg>Egyetért-e Ön azzal, hogy ez itt a második kérdés?</kszoveg>
+</kerdesr>
+<kerdesr>
+<ksor>3</ksor>
+<kszoveg>Egyetért-e Ön azzal, hogy ez itt a harmadik kérdés?</kszoveg>
+</kerdesr>
+<kerdesr>
+<ksor>4</ksor>
+<kszoveg>Egyetért-e Ön azzal, hogy ez itt a negyedik kérdés?</kszoveg>
+</kerdesr>
+</kerdes>

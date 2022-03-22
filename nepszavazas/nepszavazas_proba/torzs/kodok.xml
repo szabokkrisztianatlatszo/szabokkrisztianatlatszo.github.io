@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<kodok>
+<kodokr>
+<kodcsop>EREDM</kodcsop>
+<kod>0</kod>
+<szoveg>Nincs értékelve</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>EREDM</kodcsop>
+<kod>2</kod>
+<szoveg>Érvénytelen</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>EREDM</kodcsop>
+<kod>4</kod>
+<szoveg>Érvényes, de eredménytelen</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>EREDM</kodcsop>
+<kod>5</kod>
+<szoveg>Érvényes és eredményes</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>TELTIP</kodcsop>
+<kod>1</kod>
+<szoveg>Fővárosi kerület</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>TELTIP</kodcsop>
+<kod>2</kod>
+<szoveg>Megyei jogú város</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>TELTIP</kodcsop>
+<kod>3</kod>
+<szoveg>Város</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>TELTIP</kodcsop>
+<kod>4</kod>
+<szoveg>Község</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>NAPSZINT</kodcsop>
+<kod>2</kod>
+<szoveg>Települési szintű adatok</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>NAPSZINT</kodcsop>
+<kod>3</kod>
+<szoveg>Szavazóköri szintű elemi adatok</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>NAPSZINT</kodcsop>
+<kod>4</kod>
+<szoveg>Megyei, fővárosi összesített adatok</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>NAPSZINT</kodcsop>
+<kod>5</kod>
+<szoveg>Országos szintű összesített adatok</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>OSZINT</kodcsop>
+<kod>5</kod>
+<szoveg>Országos összesítés</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>OSZINT</kodcsop>
+<kod>4</kod>
+<szoveg>Megyei összesítés</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>OSZINT</kodcsop>
+<kod>0</kod>
+<szoveg>Települési összesítés</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>ALLTIP</kodcsop>
+<kod>1</kod>
+<szoveg>Törzsadatok</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>ALLTIP</kodcsop>
+<kod>2</kod>
+<szoveg>Napközbeni jelentések adatai</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>ALLTIP</kodcsop>
+<kod>3</kod>
+<szoveg>Szavazatösszesítés adatai</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>1</kod>
+<szoveg>Normál (speciális feladatra nem kijelölt)</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>3</kod>
+<szoveg>Normál, valamint településszintű lakosok és az átjelentkezettek szavazására  (is) kijelölt</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>5</kod>
+<szoveg>Normál, valamint településszintű lakosok részére (is) kijelölt</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>6</kod>
+<szoveg>Normál, valamint átjelentkezett lakosok részére (is) kijelölt</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>7</kod>
+<szoveg>Csak átjelentkezett lakosok részére kijelölt szavazókör</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>8</kod>
+<szoveg>Technikai szavazókör a levélben szavazás eredménye tárolásához</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>SZKTIP</kodcsop>
+<kod>9</kod>
+<szoveg>Technikai szavazókör a külképviseleti szavazás adatainak tárolásához</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>JOGORV</kodcsop>
+<kod>0</kod>
+<szoveg>Nincs jogorvoslat</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>JOGORV</kodcsop>
+<kod>2</kod>
+<szoveg>Jogorvoslat alatt</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>JOGORV</kodcsop>
+<kod>3</kod>
+<szoveg>Elutasítva</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>JOGORV</kodcsop>
+<kod>4</kod>
+<szoveg>Elfogadva, jk.változás</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>JOGORV</kodcsop>
+<kod>5</kod>
+<szoveg>Megsemmisítve</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>FORRAS</kodcsop>
+<kod>1</kod>
+<szoveg>Számított/előzetes/szkennelt eredmény</szoveg>
+</kodokr>
+<kodokr>
+<kodcsop>FORRAS</kodcsop>
+<kod>2</kod>
+<szoveg>Jegyzőkönyvi adatok</szoveg>
+</kodokr>
+</kodok>
