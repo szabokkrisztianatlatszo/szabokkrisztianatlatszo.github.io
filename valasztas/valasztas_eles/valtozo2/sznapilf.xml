@@ -168,7 +168,7 @@
 <taz>016</taz>
 <sorsz>022</sorsz>
 <nemz>9</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -177,7 +177,7 @@
 <taz>016</taz>
 <sorsz>022</sorsz>
 <nemz>5</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -186,7 +186,7 @@
 <taz>016</taz>
 <sorsz>022</sorsz>
 <nemz>10</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -510,7 +510,7 @@
 <taz>051</taz>
 <sorsz>310</sorsz>
 <nemz>5</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -519,7 +519,7 @@
 <taz>051</taz>
 <sorsz>310</sorsz>
 <nemz>10</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -528,7 +528,7 @@
 <taz>051</taz>
 <sorsz>411</sorsz>
 <nemz>3</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -537,8 +537,8 @@
 <taz>051</taz>
 <sorsz>411</sorsz>
 <nemz>10</nemz>
-<a>3</a>
-<f>2</f>
+<a>0</a>
+<f>0</f>
 </sznapilfr>
 <sznapilfr>
 <valtip>L</valtip>
@@ -546,7 +546,7 @@
 <taz>051</taz>
 <sorsz>411</sorsz>
 <nemz>11</nemz>
-<a>1</a>
+<a>0</a>
 <f>0</f>
 </sznapilfr>
 <sznapilfr>
@@ -699,8 +699,8 @@
 <taz>039</taz>
 <sorsz>012</sorsz>
 <nemz>9</nemz>
-<a>4</a>
-<f>3</f>
+<a>0</a>
+<f>0</f>
 </sznapilfr>
 <sznapilfr>
 <valtip>L</valtip>
