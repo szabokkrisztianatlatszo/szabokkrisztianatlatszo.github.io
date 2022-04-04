@@ -232,7 +232,7 @@
 </szkepvr>
 <szkepvr>
 <mtip>1</mtip>
-<jlid>71957</jlid>
+<jlid>71995</jlid>
 <lsorsz>0</lsorsz>
 </szkepvr>
 <szkepvr>
@@ -566,6 +566,11 @@
 <lsorsz>7</lsorsz>
 </szkepvr>
 <szkepvr>
+<mtip>3</mtip>
+<jlid>947</jlid>
+<lsorsz>1</lsorsz>
+</szkepvr>
+<szkepvr>
 <mtip>2</mtip>
 <jlid>950</jlid>
 <lsorsz>1</lsorsz>
@@ -754,11 +759,6 @@
 <mtip>2</mtip>
 <jlid>950</jlid>
 <lsorsz>38</lsorsz>
-</szkepvr>
-<szkepvr>
-<mtip>2</mtip>
-<jlid>950</jlid>
-<lsorsz>39</lsorsz>
 </szkepvr>
 <szkepvr>
 <mtip>2</mtip>
