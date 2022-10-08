@@ -3,13 +3,17 @@
 
 <head>
   <meta charset='utf-8' />
-  <title></title>
+<title>Térkép</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     body {
       margin:0; 
@@ -50,13 +54,175 @@
 .mapboxgl-popup-tip {
   display:none;
 }
+.szuro1 .szuro2 {
+        background: rgba(0, 0, 0, 0);
+        color: #525252;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+        border-radius: 3px;margin-top: 0.8vh;margin-bottom: 0.4vh;text-align: center;
+    }
+.szuro2 fieldset {
+        border: none;
+    }
+.szuro2 select{
+  color:#525252;}
+  #prop{font-family:Montserrat;}
+     #prop2{font-family:Montserrat;}
+     #cl4s4i9am000d14o32n7itfv8:hover{background-color:#525252;color: #f5fff6;cursor: pointer}
+
+#cl4s4i9am000d14o32n7itfv8{color:#525252;background-color: #f5fff6;
+    font-size: 1vw; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: none;border: 1.5px solid #525252
+}
+
+#cl4re8m1h003k14tbj3jdnk41:hover{background-color:#525252;color: #f5fff6;cursor: pointer}
+
+#cl4re8m1h003k14tbj3jdnk41{color:#525252;background-color: #f5fff6;
+    font-size: 1vw; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: inline-block;border: 1.5px solid #525252
+}
+
+.legend5 {
+display: inline-block;width: 40%;margin-bottom: 10px;
+
+z-index: 1;}
+
+#visszagomb2:hover{background-color:#525252;color: #f5fff6;cursor: pointer}
+
+#visszagomb2{color:#525252;background-color: #f5fff6;
+    font-size: 3.5vw; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: inline-block;border: 1.5px solid #525252;;
+}
   </style>
 </head>
 
 <body>
 
   <div id='map'></div>
+
+  <div class='szuro1'>
+        <div class='szuro2'>
+            <span class="legend5" onclick="changeImage()" id="visszagomb2">Alaphelyzet</span>
+           <span  class="legend5" id="cl4s4i9am000d14o32n7itfv8">Stilizált</span>
+     <span class="legend5"id="cl4re8m1h003k14tbj3jdnk41">Szatelit</span>
+
+                   
+                
+        
+<br>
+       <div style="font-weight:bold;color:#525252;margin-left:3px;text-align:center">Válassz térképet:</div>
+    </div>
+  
+
+</div>
   <script>
+
+    $('#cl4re8m1h003k14tbj3jdnk41').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','inline-block');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','none');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl4s3r7t6002b14qr5h0k2oil');
+         map.on('style.load', function() {
+           map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#ff0550",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 15,
+                'circle-color': "#ff9f1a",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 3,
+                'circle-color': "#fdfcfc",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            });
+        });
+
+    $('#cl4s4i9am000d14o32n7itfv8').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','none');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','inline-block');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl8zw16hq000s14pm2ycggq3u');
+         map.on('style.load', function() {
+           map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#ff0550",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 15,
+                'circle-color': "#ff9f1a",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 3,
+                'circle-color': "#fdfcfc",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            });
+        });
+
+
+
+
+
 
     var transformRequest = (url, resourceType) => {
       var isMapboxRequest =
@@ -115,7 +281,20 @@
           map.on('load', function () {
 
             //Add the the layer to the map
-
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
               map.addLayer({
               'id': 'csvData3',
               'type': 'circle',
