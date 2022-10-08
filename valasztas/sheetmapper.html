@@ -54,6 +54,42 @@
 .mapboxgl-popup-tip {
   display:none;
 }
+.map-overlay {
+        font: bold 14px 'Montserrat';
+        position: absolute;
+        width: 25vw;
+height: 95vh;
+        top: 0;
+        left: 0;
+        padding: 10px;
+          overflow-y: auto;
+
+          z-index: 21;
+        
+    }
+
+ .map-overlay .map-overlay-inner {
+        background-color: #f5fff6;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .map-overlay label {
+        
+        margin: 0 0 10px;
+    }
+
+    .map-overlay input {
+        
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        
+    }
 .szuro1 .szuro2 {
         background: rgba(0, 0, 0, 0);
         color: #525252;
@@ -96,6 +132,11 @@ z-index: 1;}
 
   <div id='map'></div>
 
+
+<div class="map-overlay top">
+ 
+    <div class="map-overlay-inner">
+      
   <div class='szuro1'>
         <div class='szuro2'>
             <span class="legend5" onclick="changeImage()" id="visszagomb2">Alaphelyzet</span>
@@ -110,7 +151,7 @@ z-index: 1;}
     </div>
   
 
-</div>
+</div></div>
   <script>
 
     $('#cl4re8m1h003k14tbj3jdnk41').on('click', function() {
