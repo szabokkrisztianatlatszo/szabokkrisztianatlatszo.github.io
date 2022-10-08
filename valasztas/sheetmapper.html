@@ -130,6 +130,36 @@
           map.on('load', function () {
 
             //Add the the layer to the map
+
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#ff0550",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 15,
+                'circle-color': "#ff9f1a",
+                'circle-blur':1,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
             map.addLayer({
               'id': 'csvData',
               'type': 'circle',
@@ -144,6 +174,10 @@
                 'circle-stroke-color':'#b9e63d'
               }
             });
+
+         
+
+          
 
 
             // When a click event occurs on a feature in the csvData layer, open a popup at the
