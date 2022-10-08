@@ -118,6 +118,13 @@
       transformRequest: transformRequest
     });
 
+      var popup = new mapboxgl.Popup({ className: "popup",
+    closeButton: false,
+    closeOnClick: false,
+    offset: [0, -5]
+  });
+
+
     $(document).ready(function () {
       $.ajax({
         type: "GET",
