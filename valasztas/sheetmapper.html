@@ -177,7 +177,7 @@ z-index: 1;}
           lonfield: 'Longitude',
           delimiter: ','
         }, function (err, data) {
-          map.on('load', function () {
+          map.on('style.load', function () {
 
             //Add the the layer to the map
  map.addSource('satellite', {
@@ -315,7 +315,7 @@ popup.remove();
           lonfield: 'Longitude',
           delimiter: ','
         }, function (err, data) {
-          map.on('load', function () {
+          map.on('style.load', function () {
 
             //Add the the layer to the map
  map.addSource('satellite', {
