@@ -160,6 +160,23 @@ z-index: 1;}
     
          
          map.setStyle('mapbox://styles/atlo/cl4s3r7t6002b14qr5h0k2oil');
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1ixP5uiDVtohIqvkwg7vIpTs2Bah21B2a-LQeXzhrgQE/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
          map.on('style.load', function() {
            map.addLayer({
               'id': 'csvData3',
@@ -213,6 +230,23 @@ z-index: 1;}
     
          
          map.setStyle('mapbox://styles/atlo/cl8zw16hq000s14pm2ycggq3u');
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1ixP5uiDVtohIqvkwg7vIpTs2Bah21B2a-LQeXzhrgQE/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
          map.on('style.load', function() {
            map.addLayer({
               'id': 'csvData3',
