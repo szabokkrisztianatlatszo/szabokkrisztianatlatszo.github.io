@@ -72,6 +72,14 @@
     .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
       border-bottom-color: rgb(61, 59, 59);
     }
+
+    .popup .mapboxgl-popup-content {
+        background-color: rgba(0,0,0,0.5);
+        color: white;margin-top: 15px;
+}
+.mapboxgl-popup-tip {
+  display:none;
+}
   </style>
 </head>
 
@@ -178,6 +186,34 @@
          
 
           
+map.on('mousemove', 'csvData', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Utca neve: </span><span style="font-family:Montserrat">' + feature.properties.kozt_nev + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
 
 
             // When a click event occurs on a feature in the csvData layer, open a popup at the
