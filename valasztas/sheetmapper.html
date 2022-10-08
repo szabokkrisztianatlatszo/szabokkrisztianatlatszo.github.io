@@ -193,7 +193,17 @@ popup.remove();
 }); 
 
 
+ map.on('click', function (e) {
+          var states1 = map.queryRenderedFeatures(e.point, {
+            layers: ['csvData']
+          });
 
+          if (states1.length > 0) {
+            window.open(states1[0].properties.forras,'abc');
+                return false;
+          } 
+
+        });  
          
            
           });
