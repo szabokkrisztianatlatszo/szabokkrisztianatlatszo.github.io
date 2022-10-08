@@ -210,7 +210,7 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Utca neve: </span><span style="font-family:Montserrat">' + feature.properties.kozt_nev + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Teljes cím: </span><span style="font-family:Montserrat">' + feature.properties.fulladdress + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
