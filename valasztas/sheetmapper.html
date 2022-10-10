@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -23,7 +24,7 @@
             font-family: 'Montserrat', sans-serif;
             cursor:default;
         overflow-x:hidden;
-    overflow-y:auto;}
+    overflow-y:hidden;}
     figure{margin:0;
       padding:0;}
        ::-webkit-scrollbar {
@@ -32,7 +33,7 @@
   }
   :root{ scrollbar-width: none !important } 
         a, a:hover, a:visited {
-            color: #0071bc;
+            color: white;
         }
 
     #map {
@@ -54,26 +55,25 @@
 .mapboxgl-popup-tip {
   display:none;
 }
-.map-overlay {
+ .map-overlay {
         font: bold 14px 'Montserrat';
         position: absolute;
-        width: 15vw;
-
+        width: 25vw;
+height: 15vh;
         top: 0;
         left: 0;
-       
+        padding: 10px;
           overflow-y: auto;
-
+pointer-events: none;
           z-index: 21;
         
     }
-
- .map-overlay .map-overlay-inner {
+  .map-overlay .map-overlay-inner {
         background-color: rgba(0,0,0,0);
-       
-        
-    
-        margin-top: 2vh;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.);
+       pointer-events: none;
+        padding-top: 10px;
+ 
 
     }
 
@@ -120,12 +120,33 @@ display: inline-block;width: 40%;margin-bottom: 10px;
 
 z-index: 1;}
 
-#visszagomb2:hover{background-color:#525252;color: #f5fff6;cursor: pointer}
 
-#visszagomb2{color:#525252;background-color: #f5fff6;
-    font-size: 3.5vw; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: inline-block;border: 1.5px solid #525252;;
-}
  .openinggreen{display: block;position: fixed;width: 100vw;height: 100vh;background-color: black;z-index: 5000000000}
+
+
+ .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group {
+  background-color: #000000;
+
+}
+
+.mapboxgl-ctrl-group:not(:empty) {
+box-shadow: 0 0 0 2px rgba(0,0,0,0);
+}
+
+.mapboxgl-ctrl-group button {border: 1.5px solid #525252}
+
+.sliderposition{position:fixed;z-index:20;background-color:rgba(0,0,0,0);width: 10vw;right: 0;padding: 5px;margin-top: 10px;margin-right: 5px;font-family: 'Montserrat';text-align: center;font-weight: 800;font-size: 1vw}
+@media only screen and (orientation: portrait){
+
+.sliderposition{position:fixed;z-index:20;background-color:rgba(0,0,0,0);width: 10vw;right: 0;padding: 5px;margin-top: 10px;margin-right: 5px;font-family: 'Montserrat';text-align: center;font-weight: 800;font-size: 3vw}
+
+}
+@media only screen and (max-width: 900px)  and (orientation: landscape){
+   
+.sliderposition{position:fixed;z-index:20;background-color:rgba(0,0,0,0);width: 10vw;right: 0;padding: 5px;margin-top: 10px;margin-right: 5px;font-family: 'Montserrat';text-align: center;font-weight: 800;font-size: 1.3vw}
+
+}
+
   </style>
 </head>
 
@@ -133,12 +154,8 @@ z-index: 1;}
  <div class='openinggreen'></div>
   <div id='map'></div>
 
-
-<div class="map-overlay top">
- 
-    <div class="map-overlay-inner">
-      
-  <div class='szuro1'>
+<div class="sliderposition"> 
+<div class='szuro1'>
         <div class='szuro2'>
            
            <span  class="legend5" id="cl4s4i9am000d14o32n7itfv8">Stilizált</span>
@@ -146,12 +163,38 @@ z-index: 1;}
 
                    
                 
-        
 
+    
     </div>
   
 
-</div></div>
+</div>
+      </div>
+
+
+
+<div class="map-overlay top">
+ 
+    <div class="map-overlay-inner">
+       <div class="close"></div>
+  <div style="font-weight:bold;color:white;margin-left:3px;text-align:center">Tanártüntetések térképen</div>
+    <div class='szuro1'>
+        <div class='szuro2'>
+         
+
+                   
+                
+        
+
+    <iframe src='https://flo.uri.sh/visualisation/11423745/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:15vh;margin-top: -3vh;pointer-events:none' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe> 
+    </div>
+  
+
+</div>
+
+</div>
+
+</div>
  
 
     <script>
@@ -178,7 +221,7 @@ z-index: 1;}
      $("#cl4re8m1h003k14tbj3jdnk41").css('display','none');
     
          
-         map.setStyle('mapbox://styles/atlo/cl4s3r7t6002b14qr5h0k2oil');
+         map.setStyle('mapbox://styles/atlo/cl92c8rhy007n14nuv8saoisb');
         
          $(document).ready(function () {
       $.ajax({
@@ -223,8 +266,8 @@ z-index: 1;}
               },
               'paint': {
                 'circle-radius': 30,
-                'circle-color': "#ff0550",
-                'circle-blur':1,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -237,9 +280,9 @@ z-index: 1;}
                 'data': data
               },
               'paint': {
-                'circle-radius': 15,
-                'circle-color': "#ff9f1a",
-                'circle-blur':1,
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -252,8 +295,8 @@ z-index: 1;}
               },
               'paint': {
                 'circle-radius': 3,
-                'circle-color': "#fdfcfc",
-                'circle-blur':2,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -278,7 +321,7 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Teljes cím: </span><span style="font-family:Montserrat">' + feature.properties.fulladdress + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
@@ -316,7 +359,7 @@ popup.remove();
      $("#cl4re8m1h003k14tbj3jdnk41").css('display','inline-block');
     
          
-         map.setStyle('mapbox://styles/atlo/cl8zw16hq000s14pm2ycggq3u');
+         map.setStyle('mapbox://styles/atlo/cl92c8p6o007m14nutozknkln');
          
          $(document).ready(function () {
       $.ajax({
@@ -361,8 +404,8 @@ popup.remove();
               },
               'paint': {
                 'circle-radius': 30,
-                'circle-color': "#ff0550",
-                'circle-blur':1,
+                'circle-color': "#ffffff",
+                'circle-blur':2,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -375,9 +418,9 @@ popup.remove();
                 'data': data
               },
               'paint': {
-                'circle-radius': 15,
-                'circle-color': "#ff9f1a",
-                'circle-blur':1,
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -390,8 +433,8 @@ popup.remove();
               },
               'paint': {
                 'circle-radius': 3,
-                'circle-color': "#fdfcfc",
-                'circle-blur':2,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -416,7 +459,7 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Teljes cím: </span><span style="font-family:Montserrat">' + feature.properties.fulladdress + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
@@ -475,7 +518,7 @@ popup.remove();
 ];
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/atlo/cl8zw16hq000s14pm2ycggq3u', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
+      style: 'mapbox://styles/atlo/cl92c8p6o007m14nutozknkln', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
       center: [19.49243, 47.23221],
       pitch: 0.00,
       bearing:0,// starting position [lng, lat]
@@ -484,6 +527,7 @@ popup.remove();
       transformRequest: transformRequest
     });
 
+map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       var popup = new mapboxgl.Popup({ className: "popup",
     closeButton: false,
     closeOnClick: false,
@@ -534,8 +578,8 @@ popup.remove();
               },
               'paint': {
                 'circle-radius': 30,
-                'circle-color': "#ff0550",
-                'circle-blur':1,
+                'circle-color': "#ffffff",
+                'circle-blur':2,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -548,9 +592,9 @@ popup.remove();
                 'data': data
               },
               'paint': {
-                'circle-radius': 15,
-                'circle-color': "#ff9f1a",
-                'circle-blur':1,
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -563,8 +607,8 @@ popup.remove();
               },
               'paint': {
                 'circle-radius': 3,
-                'circle-color': "#fdfcfc",
-                'circle-blur':2,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
                 'circle-stroke-color':'#b9e63d'
               }
             });
@@ -589,7 +633,7 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Teljes cím: </span><span style="font-family:Montserrat">' + feature.properties.fulladdress + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
