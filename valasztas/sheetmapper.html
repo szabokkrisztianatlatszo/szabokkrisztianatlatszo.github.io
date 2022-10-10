@@ -46,7 +46,7 @@
 .close {
   position: absolute;
   right: 20px;
-  top: 15px;
+  top: 5px;
   width: 0vw;
   height: 0vw;
   opacity: 0.3;z-index: 30;transition: 0.3s;
@@ -154,17 +154,19 @@ pointer-events: all;
 .szuro2 fieldset {
         border: none;
     }
+
+    .iskolacim{font-size: 1.5vw}
 .szuro2 select{
   color:#525252;}
   #prop{font-family:Montserrat;}
      #prop2{font-family:Montserrat;}
      #cl4s4i9am000d14o32n7itfv8:hover{background-color:#ffffff;color: #000000;cursor: pointer}
 
-.endtitle5{position: fixed;display: block;bottom: 0;right: 0;margin-right: 3.5vw;margin-bottom: 3.5vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle5{display: inline-block;;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle5:hover{opacity: 1;cursor: pointer;}
 
-.endtitle6{position: fixed;display: block;bottom: 0;right: 0;margin-right: 7.5vw;margin-bottom: 3.5vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle6{display: inline-block;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle6:hover{opacity: 1;cursor: pointer;}
 
@@ -192,6 +194,8 @@ z-index: 1;}
   background-color: #000000;
 
 }
+.infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2.5vh;padding-left: 5px;transition: 0s;z-index: -1}
+.infobubble:hover{opacity: 1;cursor: pointer;filter: invert(1);}
 
 .mapboxgl-ctrl-group:not(:empty) {
 box-shadow: 0 0 0 2px rgba(0,0,0,0);
@@ -217,6 +221,11 @@ z-index: -1;}
 
 @media only screen and (orientation: portrait){
 
+  .infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2vh;padding-left: 25px;transition: 0s;z-index: -1}
+.infobubble:hover{opacity: 1;cursor: pointer;filter: invert(1);}
+
+      .iskolacim{font-size: 5vw;background-color: black}
+
   .close {
   position: absolute;
   right: 15px;
@@ -232,7 +241,7 @@ z-index: -1;}
   position: absolute;
   rigth: 0px;
   content: ' ';
-  height: 5vw;
+  height: 6vw;
   width: 4.5px;
   background-color: #ffffff;
 }
@@ -245,7 +254,7 @@ z-index: -1;}
   .map-overlay {
         font: bold 14px 'Montserrat';
         position: absolute;
-        width: 65vw;
+        width: 92vw;
 height: auto;
         top: 0;
         left: 0;
@@ -269,17 +278,19 @@ pointer-events: all;
     font-size: 3vw; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: none;border: 1.5px solid #525252
 }
 
-.endtitle5{position: fixed;display: block;bottom: 0;right: 0;margin-right: 12vw;margin-bottom: 7vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle5{display: inline-block;;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle5:hover{opacity: 1;cursor: pointer;}
 
-.endtitle6{position: fixed;display: block;bottom: 0;right: 0;margin-right: 26vw;margin-bottom: 7vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle6{display: inline-block;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle6:hover{opacity: 1;cursor: pointer;}
   .iframe{height: 16vh;margin-top: -3vh}
 
 }
 @media only screen and (max-width: 900px)  and (orientation: landscape){
+
+  .iskolacim{font-size: 2vw}
 .close {
   position: absolute;
   right: 15px;
@@ -306,11 +317,11 @@ pointer-events: all;
   transform: rotate(-45deg);
 }
 
-.endtitle5{position: fixed;display: block;bottom: 0;right: 0;margin-right: 5.5vw;margin-bottom: 7vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle5{display: inline-block;;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle5:hover{opacity: 1;cursor: pointer;}
 
-.endtitle6{position: fixed;display: block;bottom: 0;right: 0;margin-right: 12vw;margin-bottom: 7vh;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
+.endtitle6{display: inline-block;width: 45px;height: auto;opacity: 0.5;transition: 0.3s;
 }
 .endtitle6:hover{opacity: 1;cursor: pointer;}
   .iframe{height: 20vh;margin-top: -5vh}
@@ -318,7 +329,7 @@ pointer-events: all;
         font: bold 14px 'Montserrat';
         position: absolute;
         width: 45vw;
-height: auto;
+height: 85vh;
         top: 0;
         left: 0;
         padding: 10px;
@@ -347,6 +358,8 @@ pointer-events: all;
 .teljeslista:hover{color:#7c9cff}
 
 
+
+
   </style>
 
 
@@ -356,9 +369,7 @@ pointer-events: all;
  <div class='openinggreen'></div>
   <div id='map'></div>
 
-<img class="endtitle5" onclick="redirect_Page2(this)"src="https://atlo.team/wp-content/uploads/2021/10/atlologoujfeher-1.png">
-<img class="endtitle6" onclick="redirect_Page3(this)"src="https://atlo.team/wp-content/uploads/2022/10/atlatszokicsi.png">
- <div class="legend4"><h4><span id="visszagomb">Menü</span></h4></div>
+ <img class="infobubble" src="https://atlo.team/wp-content/uploads/2022/10/infogomb3.png">
 <div class="sliderposition"> 
 <div class='szuro1'>
         <div class='szuro2'>
@@ -382,7 +393,7 @@ pointer-events: all;
  
     <div class="map-overlay-inner">
        <div class="close"></div>
-  <div style="font-weight:bold;color:white;margin-left:3px;text-align:center"><b>Tanári kiállások az oktatási rendszer javításáért</b></div>
+  <div class="iskolacim"style="font-weight:bold;color:white;margin-left:3px;text-align:center"><b>Tanári kiállások az oktatási rendszer javításáért</b></div>
     <div class='szuro1'>
         <div class='szuro2'>
          
@@ -392,7 +403,22 @@ pointer-events: all;
         
 
     <iframe class="iframe"src='https://flo.uri.sh/visualisation/11423745/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;pointer-events:none' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe> 
- <div style="font-weight:normal;color:white;margin-left:0px;margin-top: -8.5vh;text-align:justify">Az oktatás ügye mellett több oktatási intézmény pedagógusai álltak és állnak ki ezekben a napokban országszerte. Ezen a térképen lelkes támogató szülők gyűjtésének segítségével bemutatjuk azokat a szolidarító intézményeket, amelyek nyilatkozatot tettek közzé a Facebookon, honlapjukon vagy a sajtóban. Az egeret a pötty fölé húzva megjelenik az intézmény neve, a szolidarító pedagógusok száma és a kiállás dátuma. A pöttyre kattintva megnyílik az eredeti nyilatkozat. A szolidarítók számát a nyilatkozattételben közzétett névsorból, vagy a szövegben szereplő számadatból vesszük, ennek hiányában a fotón szereplő személyek száma a mérvadó.<br><br>A teljes listához kattints <a class="teljeslista"href="https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/edit#gid=0"target="_blank">ide</a>.</div>
+ <div style="font-weight:normal;color:white;margin-left:0px;margin-top: -8.5vh;text-align:left;padding-left:3%;padding-right:3%">Az oktatás ügye mellett több oktatási intézmény pedagógusai álltak és állnak ki ezekben a napokban országszerte. Ezen a térképen lelkes támogató szülők gyűjtésének segítségével bemutatjuk azokat a szolidarító intézményeket, amelyek nyilatkozatot tettek közzé a Facebookon, honlapjukon vagy a sajtóban. Az egeret a pötty fölé húzva megjelenik az intézmény neve, a szolidarító pedagógusok száma és a kiállás dátuma. A pöttyre kattintva megnyílik az eredeti nyilatkozat. A szolidarítók számát a nyilatkozattételben közzétett névsorból, vagy a szövegben szereplő számadatból vesszük, ennek hiányában a fotón szereplő személyek száma a mérvadó.<br><br>
+  Hiányzik az iskolád? Írd meg nekünk az <a class="teljeslista"href="mailto:info@atlo.team">info@atlo.team</a> emailre a következő adatokat: település, iskola neve, hány fő, lat-long<br><br>
+
+ <table style="text-align: center;width:100%;padding-top:20px">
+  <tr>
+    <td >
+      <img class="endtitle5" onclick="redirect_Page2(this)"src="https://atlo.team/wp-content/uploads/2021/10/atlologoujfeher-1.png">
+</td>
+    <td><img class="endtitle6" onclick="redirect_Page3(this)"src="https://atlo.team/wp-content/uploads/2022/10/atlatszokicsi.png"></td>
+    
+  </tr>
+  <tr>
+    <td >atlo.team</td>
+    <td>atlatszo.hu</td>
+    
+  </tr></div>
 
     </div>
   
@@ -444,15 +470,15 @@ let redirect_Page3 = (ele) => {
   $('.close').on('click', function() {
     {      
         $('.map-overlay').css("z-index",-1);
-        $('.legend4').css("z-index",1);
+        $('.infobubble').css("z-index",1);
        
     } 
     });
 
-  $('#visszagomb').on('click', function() {
+  $('.infobubble').on('click', function() {
     {      
         $('.map-overlay').css("z-index",21);
-        $('.legend4').css("z-index",-1);
+        $('.infobubble').css("z-index",-1);
        
     } 
     });
