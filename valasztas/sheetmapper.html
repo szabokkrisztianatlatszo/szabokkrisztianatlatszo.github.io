@@ -478,7 +478,7 @@ let redirect_Page3 = (ele) => {
 
   $('.close').on('click', function() {
     {      
-        $('.map-overlay').css("z-index",-1);
+        $('.map-overlay').css("display","none");
         $('.infobubble').css("z-index",1);
        
     } 
@@ -486,7 +486,7 @@ let redirect_Page3 = (ele) => {
 
   $('.infobubble').on('click', function() {
     {      
-        $('.map-overlay').css("z-index",21);
+        $('.map-overlay').css("display","inline-block");
         $('.infobubble').css("z-index",-1);
        
     } 
