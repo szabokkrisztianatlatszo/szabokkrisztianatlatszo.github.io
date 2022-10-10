@@ -45,7 +45,57 @@
 
     /* Popup styling */
 
+.close {
+  position: absolute;
+  right: 27px;
+  top: 15px;
+  width: 0vw;
+  height: 0vw;
+  opacity: 0.3;z-index: 30;transition: 0.3s;
+}
+.close:hover {
+  opacity: 1;cursor: pointer;
+}
+.close:before, .close:after {
+  position: absolute;
+  rigth: 0px;
+  content: ' ';
+  height: 1.5vw;
+  width: 4.5px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
 
+.close2 {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  width: 0vw;
+  height: 0vw;
+  opacity: 0.3;z-index: 30;transition: 0.3s;
+}
+.close2:hover {
+  opacity: 1;cursor: pointer;
+}
+.close2:before, .close2:after {
+  position: absolute;
+  rigth: 0px;
+  content: ' ';
+  height: 1.5vw;
+  width: 3.5px;
+  background-color: #333;
+}
+.close2:before {
+  transform: rotate(45deg);
+}
+.close2:after {
+  transform: rotate(-45deg);
+}
     
 
     .popup .mapboxgl-popup-content {
@@ -58,7 +108,7 @@
  .map-overlay {
         font: bold 14px 'Montserrat';
         position: absolute;
-        width: 25vw;
+        width: 30vw;
 height: 15vh;
         top: 0;
         left: 0;
@@ -222,7 +272,7 @@ pointer-events: none;
  
     <div class="map-overlay-inner">
        <div class="close"></div>
-  <div style="font-weight:bold;color:white;margin-left:3px;text-align:center">Tanártüntetések térképen</div>
+  <div style="font-weight:bold;color:white;margin-left:3px;text-align:center">Tanári kiállások az oktatási rendszer javításáért</div>
     <div class='szuro1'>
         <div class='szuro2'>
          
@@ -260,7 +310,7 @@ pointer-events: none;
      
  </script>
  <script>
-
+if (screen && screen.width <= 900 && navigator.userAgent.match(/iPad/i)) {
     $('#cl4re8m1h003k14tbj3jdnk41').on('click', function() {
     $("#cl4s4i9am000d14o32n7itfv8").css('display','inline-block');
      $("#cl4re8m1h003k14tbj3jdnk41").css('display','none');
@@ -349,11 +399,11 @@ pointer-events: none;
          
 
           
-map.on('mousemove', 'csvData', function(e) {
+map.on('mousemove', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['csvData'] // replace this with the name of the layer
+    layers: ['csvData2'] // replace this with the name of the layer
   });
 
  if (!features.length) {
@@ -366,14 +416,863 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
 
 
         // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData', function () {
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+
+         
+           
+          });
+
+        });
+      };
+    });
+        });
+
+    $('#cl4s4i9am000d14o32n7itfv8').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','none');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','inline-block');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl92e0mx3009b14nr9yrc7nar');
+         
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('style.load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+ 
+         
+           
+          });
+
+        });
+      };
+    });
+        });
+
+
+
+
+
+
+    var transformRequest = (url, resourceType) => {
+      var isMapboxRequest =
+        url.slice(8, 22) === "api.mapbox.com" ||
+        url.slice(10, 26) === "tiles.mapbox.com";
+      return {
+        url: isMapboxRequest
+          ? url.replace("?", "?pluginName=sheetMapper&")
+          : url
+      };
+    };
+    //YOUR TURN: add your Mapbox token
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXRsbyIsImEiOiJjam5mdDVldmkwbTJ6M3BwNW13ZXhuYXM4In0.gikvkhPkud0GJy1FxG6-Zg'; //Mapbox token 
+
+
+    var bounds = [
+[15.31178, 45.70992], // Southwest coordinates
+[23.72585, 48.70813] // Northeast coordinates
+];
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/atlo/cl92e0jt2000q15o4mnfuxoel', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
+      center: [19.49243, 47.23221],
+      pitch: 0.00,
+      bearing:0,// starting position [lng, lat]
+      zoom: 6,// starting zoom
+      maxBounds: bounds,
+      transformRequest: transformRequest
+    });
+
+map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+      var popup = new mapboxgl.Popup({ className: "popup",
+    closeButton: false,
+    closeOnClick: false,
+    offset: [0, -5]
+  });
+
+
+    $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+
+         
+           
+          });
+
+        });
+      };
+    });
+
+
+};
+
+  </script>
+  <script>
+if (screen && screen.width <= 900 && navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i)) {
+    $('#cl4re8m1h003k14tbj3jdnk41').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','inline-block');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','none');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl92e0jt2000q15o4mnfuxoel');
+        
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('style.load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+         
+           
+          });
+
+        });
+      };
+    });
+        });
+
+    $('#cl4s4i9am000d14o32n7itfv8').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','none');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','inline-block');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl92e0mx3009b14nr9yrc7nar');
+         
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('style.load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+
+         
+           
+          });
+
+        });
+      };
+    });
+        });
+
+
+
+
+
+
+    var transformRequest = (url, resourceType) => {
+      var isMapboxRequest =
+        url.slice(8, 22) === "api.mapbox.com" ||
+        url.slice(10, 26) === "tiles.mapbox.com";
+      return {
+        url: isMapboxRequest
+          ? url.replace("?", "?pluginName=sheetMapper&")
+          : url
+      };
+    };
+    //YOUR TURN: add your Mapbox token
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXRsbyIsImEiOiJjam5mdDVldmkwbTJ6M3BwNW13ZXhuYXM4In0.gikvkhPkud0GJy1FxG6-Zg'; //Mapbox token 
+
+
+    var bounds = [
+[15.31178, 45.70992], // Southwest coordinates
+[23.72585, 48.70813] // Northeast coordinates
+];
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/atlo/cl92e0jt2000q15o4mnfuxoel', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
+      center: [19.49243, 47.23221],
+      pitch: 0.00,
+      bearing:0,// starting position [lng, lat]
+      zoom: 6,// starting zoom
+      maxBounds: bounds,
+      transformRequest: transformRequest
+    });
+
+map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+      var popup = new mapboxgl.Popup({ className: "popup",
+    closeButton: false,
+    closeOnClick: false,
+    offset: [0, -5]
+  });
+
+
+    $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
+map.getCanvas().style.cursor = 'default';
+popup.remove();
+}); 
+
+
+
+         
+           
+          });
+
+        });
+      };
+    });
+
+
+};
+
+  </script>
+ <script>
+if (screen && screen.width > 900) {  
+    $('#cl4re8m1h003k14tbj3jdnk41').on('click', function() {
+    $("#cl4s4i9am000d14o32n7itfv8").css('display','inline-block');
+     $("#cl4re8m1h003k14tbj3jdnk41").css('display','none');
+    
+         
+         map.setStyle('mapbox://styles/atlo/cl92e0jt2000q15o4mnfuxoel');
+        
+         $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+
+
+
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          map.on('style.load', function () {
+
+            //Add the the layer to the map
+ map.addSource('satellite', {
+            'type': 'raster',
+            'url': 'mapbox://mapbox.satellite'
+        });
+        map.addLayer({
+            'id': 'satellite',
+            'source': 'satellite',
+            'type': 'raster',
+            'layout': {
+            'visibility':'visible'},
+            "paint" : {
+    "raster-opacity" : 0
+  }
+        });
+              map.addLayer({
+              'id': 'csvData3',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 30,
+                'circle-color': "#fc9d03",
+                'circle-blur':2,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+                map.addLayer({
+              'id': 'csvData2',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 10,
+                'circle-color': "#9bfafd",
+                'circle-blur':1.5,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+            map.addLayer({
+              'id': 'csvData',
+              'type': 'circle',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'paint': {
+                'circle-radius': 1.5,
+                'circle-color': "#fffd85",
+                'circle-blur':0,
+                'circle-stroke-color':'#b9e63d'
+              }
+            });
+
+         
+
+          
+map.on('mousemove', 'csvData2', function(e) {
+  map.getCanvas().style.cursor = 'pointer';
+  
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['csvData2'] // replace this with the name of the layer
+  });
+
+ if (!features.length) {
+    return;
+  }
+
+  var props = features[0].properties;
+
+        var state = features[0].state;
+  
+  var feature = features[0];
+            popup.setLngLat(e.lngLat)
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .addTo(map);
+
+        });
+
+
+        // Change it back to a pointer when it leaves.
+map.on('mouseleave', 'csvData2', function () {
 map.getCanvas().style.cursor = 'default';
 popup.remove();
 }); 
@@ -381,7 +1280,7 @@ popup.remove();
 
  map.on('click', function (e) {
           var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData']
+            layers: ['csvData2']
           });
 
           if (states1.length > 0) {
@@ -487,11 +1386,11 @@ popup.remove();
          
 
           
-map.on('mousemove', 'csvData', function(e) {
+map.on('mousemove', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['csvData'] // replace this with the name of the layer
+    layers: ['csvData2'] // replace this with the name of the layer
   });
 
  if (!features.length) {
@@ -504,14 +1403,14 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
 
 
         // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData', function () {
+map.on('mouseleave', 'csvData2', function () {
 map.getCanvas().style.cursor = 'default';
 popup.remove();
 }); 
@@ -519,7 +1418,7 @@ popup.remove();
 
  map.on('click', function (e) {
           var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData']
+            layers: ['csvData2']
           });
 
           if (states1.length > 0) {
@@ -661,11 +1560,11 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
          
 
           
-map.on('mousemove', 'csvData', function(e) {
+map.on('mousemove', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['csvData'] // replace this with the name of the layer
+    layers: ['csvData2'] // replace this with the name of the layer
   });
 
  if (!features.length) {
@@ -678,14 +1577,14 @@ map.on('mousemove', 'csvData', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
                 .addTo(map);
 
         });
 
 
         // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData', function () {
+map.on('mouseleave', 'csvData2', function () {
 map.getCanvas().style.cursor = 'default';
 popup.remove();
 }); 
@@ -693,7 +1592,7 @@ popup.remove();
 
  map.on('click', function (e) {
           var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData']
+            layers: ['csvData2']
           });
 
           if (states1.length > 0) {
@@ -711,7 +1610,7 @@ popup.remove();
     });
 
 
-
+};
 
   </script>
 
