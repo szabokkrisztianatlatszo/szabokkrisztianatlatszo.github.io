@@ -362,6 +362,8 @@ pointer-events: all;
         
     }
 
+    .mapboxgl-popup-close-button{color: rgba(255,13,107,1);transform: scale(1.5)}
+
     #visszagomb{background-color:#000000;font-size: 1.5vw;color: #ffffff; text-align: center;border-radius: 5px;margin-top: 0px;font-weight: 800;font-family: 'Montserrat';padding-left: 5px;padding-right: 5px;padding-top: 2px;padding-bottom: 2px;transition: 0.3s;display: block;border: 1.5px solid #525252
 }
     #cl4s4i9am000d14o32n7itfv8{color:#ffffff;background-color: #000000;
@@ -594,7 +596,7 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/iPad/i)) {
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
@@ -611,17 +613,11 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
                 .addTo(map);
 
         });
 
-
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
 
 
 
@@ -722,7 +718,7 @@ popup.remove();
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
@@ -739,17 +735,13 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
                 .addTo(map);
 
         });
 
 
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
+   
 
 
  
@@ -799,7 +791,7 @@ popup.remove();
 
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       var popup = new mapboxgl.Popup({ className: "popup",
-    closeButton: false,
+    closeButton: true,
     closeOnClick: false,
     offset: [0, -5]
   });
@@ -886,7 +878,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
@@ -903,17 +895,13 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
                 .addTo(map);
 
         });
 
 
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
+    
 
 
 
