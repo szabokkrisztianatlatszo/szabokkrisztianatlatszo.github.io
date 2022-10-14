@@ -1019,7 +1019,7 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/Android|webOS|iP
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
@@ -1146,7 +1146,7 @@ popup.remove();
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
@@ -1310,7 +1310,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
          
 
           
-map.on('mousemove', 'csvData2', function(e) {
+map.on('click', 'csvData2', function(e) {
   map.getCanvas().style.cursor = 'pointer';
   
   var features = map.queryRenderedFeatures(e.point, {
