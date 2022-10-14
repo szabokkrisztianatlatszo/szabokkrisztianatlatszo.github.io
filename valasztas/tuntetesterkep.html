@@ -1042,11 +1042,7 @@ map.on('click', 'csvData2', function(e) {
         });
 
 
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
+   
 
 
          
@@ -1169,11 +1165,7 @@ map.on('click', 'csvData2', function(e) {
         });
 
 
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
+  
 
 
 
@@ -1223,7 +1215,7 @@ popup.remove();
 
 map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       var popup = new mapboxgl.Popup({ className: "popup",
-    closeButton: false,
+    closeButton: true,
     closeOnClick: false,
     offset: [0, -5]
   });
@@ -1333,11 +1325,6 @@ map.on('click', 'csvData2', function(e) {
         });
 
 
-        // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'csvData2', function () {
-map.getCanvas().style.cursor = 'default';
-popup.remove();
-}); 
 
 
 
