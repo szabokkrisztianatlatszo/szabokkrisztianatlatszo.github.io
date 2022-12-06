@@ -112,7 +112,7 @@
     
 
     .popup .mapboxgl-popup-content {
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(244,244,244,0.8);
         color: black;margin-top: 15px;
         width: 20vw;
 }
@@ -236,7 +236,7 @@ z-index: -1;}
 
 @media only screen and (orientation: portrait){
   .popup .mapboxgl-popup-content {
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(244,244,244,0.8);
         color: black;margin-top: 15px;
         width: auto;
 }
@@ -310,7 +310,7 @@ pointer-events: all;
 }
 @media only screen and (max-width: 900px)  and (orientation: landscape){
 .popup .mapboxgl-popup-content {
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(244,244,244,0.8);
         color:  black;margin-top: 15px;
         width: auto;
 }
@@ -616,7 +616,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -738,7 +738,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -898,7 +898,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -1027,7 +1027,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map); 
 
         });
@@ -1150,7 +1150,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -1310,7 +1310,7 @@ map.on('click', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span><br><span style="font-weight:bold; font-family:Montserrat"><a style="text-decoration: none;color: rgba(255,13,107,1)" href="'+feature.properties.forras+'" target="_blank">Forrás</a></span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -1438,7 +1438,7 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -1566,7 +1566,7 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
@@ -1730,7 +1730,7 @@ map.on('mousemove', 'csvData2', function(e) {
   
   var feature = features[0];
             popup.setLngLat(e.lngLat)
-                .setHTML('<span style="font-weight:bold; font-family:Montserrat">Város: </span><span style="font-family:Montserrat">' + feature.properties.varos + '</span><br><span style="font-weight:bold; font-family:Montserrat">Iskola neve: </span><span style="font-family:Montserrat">' + feature.properties.iskolaneve + '</span><br><span style="font-weight:bold; font-family:Montserrat">Dátum: </span><span style="font-family:Montserrat">' + feature.properties.datum + '</span><br><span style="font-weight:bold; font-family:Montserrat">Hány fő? </span><span style="font-family:Montserrat">' + feature.properties.hanyfo + '</span>')
+                .setHTML('<span style="font-weight:bold; font-family:Merriweather">Töltőállomás: </span><span style="font-family:Merriweather">' + feature.properties.fullcim + '</span><br><span style="font-weight:bold; font-family:Merriweather">Probléma: </span><span style="font-family:Merriweather">' + feature.properties.problemafull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mi fogyott el? </span><span style="font-family:Merriweather">' + feature.properties.kifogyottfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Min van korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.korlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Mennyi a korlátozás? </span><span style="font-family:Merriweather">' + feature.properties.mennyisegikorlatozasfull + '</span><br><span style="font-weight:bold; font-family:Merriweather">Várakozási idő: </span><span style="font-family:Merriweather">' + feature.properties.varakozasiidofull + '</span>')
                 .addTo(map);
 
         });
