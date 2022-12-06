@@ -112,7 +112,7 @@
     
 
     .popup .mapboxgl-popup-content {
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(255,255,255,0.8);
         color: black;margin-top: 15px;
         width: 20vw;
 }
@@ -206,10 +206,10 @@ z-index: 1;}
 
 
  .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group {
-  background-color: #ffffff;
+  background-color: #f4f4f4;
 
 }
-.infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2.5vh;padding-left: 5px;transition: 0s;z-index: -1;filter: invert(1)}
+.infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2.5vh;padding-left: 5px;transition: 0s;z-index: -1;filter: invert(0.955)}
 .infobubble:hover{opacity: 1;cursor: pointer;filter: invert(0);}
 
 .mapboxgl-ctrl-group:not(:empty) {
@@ -236,12 +236,12 @@ z-index: -1;}
 
 @media only screen and (orientation: portrait){
   .popup .mapboxgl-popup-content {
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(255,255,255,0.8);
         color: black;margin-top: 15px;
         width: auto;
 }
 
-  .infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2vh;padding-left: 25px;transition: 0s;z-index: -1;filter: invert(1)}
+  .infobubble{position: fixed;display: block;left: 0;top: 0;margin-left: 1vw;width: 25px;height: auto; margin-top: 2vh;padding-left: 25px;transition: 0s;z-index: -1;filter: invert(0.955)}
 .infobubble:hover{opacity: 1;cursor: pointer;filter: invert(0);}
 
       .iskolacim{font-size: 5vw;background-color: black}
@@ -310,7 +310,7 @@ pointer-events: all;
 }
 @media only screen and (max-width: 900px)  and (orientation: landscape){
 .popup .mapboxgl-popup-content {
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(255,255,255,0.8);
         color:  black;margin-top: 15px;
         width: auto;
 }
@@ -1451,17 +1451,7 @@ popup.remove();
 }); 
 
 
- map.on('click', function (e) {
-          var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData2']
-          });
-
-          if (states1.length > 0) {
-            window.open(states1[0].properties.forras,'abc');
-                return false;
-          } 
-
-        });  
+  
          
            
           });
@@ -1589,17 +1579,7 @@ popup.remove();
 }); 
 
 
- map.on('click', function (e) {
-          var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData2']
-          });
-
-          if (states1.length > 0) {
-            window.open(states1[0].properties.forras,'abc');
-                return false;
-          } 
-
-        });  
+ 
          
            
           });
@@ -1763,17 +1743,7 @@ popup.remove();
 }); 
 
 
- map.on('click', function (e) {
-          var states1 = map.queryRenderedFeatures(e.point, {
-            layers: ['csvData2']
-          });
-
-          if (states1.length > 0) {
-            window.open(states1[0].properties.forras,'abc');
-                return false;
-          } 
-
-        });  
+ 
          
            
           });
