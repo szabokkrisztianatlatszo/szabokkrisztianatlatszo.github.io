@@ -518,7 +518,8 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/iPad/i)) {
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
+
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -548,20 +549,7 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/iPad/i)) {
     "raster-opacity" : 0
   }
         });
-              map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
+            
 
                 map.addLayer({
               'id': 'csvData2',
@@ -571,26 +559,42 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/iPad/i)) {
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
+           
 
          
 
@@ -640,7 +644,7 @@ map.on('click', 'csvData2', function(e) {
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -670,22 +674,7 @@ map.on('click', 'csvData2', function(e) {
     "raster-opacity" : 0
   }
         });
-              map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
+             map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -693,24 +682,39 @@ map.on('click', 'csvData2', function(e) {
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -800,7 +804,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -831,21 +835,6 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -853,24 +842,39 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -929,7 +933,7 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/Android|webOS|iP
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -959,22 +963,7 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/Android|webOS|iP
     "raster-opacity" : 0
   }
         });
-              map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
+             map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -982,24 +971,39 @@ if (screen && screen.width <= 900 && navigator.userAgent.match(/Android|webOS|iP
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -1052,7 +1056,7 @@ map.on('click', 'csvData2', function(e) {
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -1083,21 +1087,6 @@ map.on('click', 'csvData2', function(e) {
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -1105,24 +1094,39 @@ map.on('click', 'csvData2', function(e) {
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -1212,7 +1216,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -1243,21 +1247,6 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -1265,24 +1254,39 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -1340,7 +1344,7 @@ if (screen && screen.width > 900) {
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -1371,21 +1375,6 @@ if (screen && screen.width > 900) {
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -1393,24 +1382,39 @@ if (screen && screen.width > 900) {
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -1478,7 +1482,7 @@ popup.remove();
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -1509,21 +1513,6 @@ popup.remove();
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -1531,24 +1520,39 @@ popup.remove();
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
@@ -1652,7 +1656,7 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1LNIBAY_MY9khaRza6dnA2D1p3SUbUigoh-NcI1ieVRk/gviz/tq?tqx=out:csv&sheet=pontok',
+        url: 'https://docs.google.com/spreadsheets/d/1CwskLu2kv_hDLiQknp0RgzxCD9-a6N0TftrYKq7bv58/gviz/tq?tqx=out:csv&sheet=main',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -1683,21 +1687,6 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   }
         });
               map.addLayer({
-              'id': 'csvData3',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 30,
-                'circle-color': "#fc9d03",
-                'circle-blur':2,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-
-                map.addLayer({
               'id': 'csvData2',
               'type': 'circle',
               'source': {
@@ -1705,24 +1694,39 @@ map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
-                'circle-color': "#9bfafd",
-                'circle-blur':1.5,
-                'circle-stroke-color':'#b9e63d'
-              }
-            });
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 1.5,
-                'circle-color': "#fffd85",
-                'circle-blur':0,
-                'circle-stroke-color':'#b9e63d'
+                'circle-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "hsl(0, 100%, 50%)",
+  "#2f9ae3"
+],
+                'circle-radius':[
+  "interpolate",
+  ["linear"],
+  ["zoom"],
+  6,
+  2.5,
+  9,
+  4,
+  12,
+  6
+],
+     'circle-blur':0,
+     'circle-stroke-color':[
+  "match",
+  ["get", "szin"],
+  [
+    "x"
+  ],
+  "#600000",
+  "#145e90"
+],
+     'circle-stroke-width':0.2
+                
+
               }
             });
 
