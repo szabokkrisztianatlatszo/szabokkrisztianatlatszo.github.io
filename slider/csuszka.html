@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Title</title>
+    <style>
+      .image-slider-container {
+        max-width: 900px;
+        margin: 40px auto;
+        text-align: center;
+        font-family: system-ui, sans-serif;
+      }
+
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+      }
+
+      .slider-wrap {
+        position: relative;
+        width: min(520px, 90%);
+        margin: 18px auto 10px; /* középre */
+        padding-top: 18px;      /* hely a buboréknak */
+      }
+
+      .image-slider {
+        width: 100%;
+        appearance: none;
+        height: 6px;
+        border-radius: 999px;
+        background: #ddd;
+        outline: none;
+      }
+
+      /* WebKit thumb */
+      .image-slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #111;
+        cursor: pointer;
+      }
+
+      /* Firefox thumb */
+      .image-slider::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #111;
+        cursor: pointer;
+        border: none;
+      }
+
+      .year-bubble {
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        background: #111;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 1;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
+      .year-label {
+        margin-top: 12px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="image-slider-container">
+      <div class="slider-wrap">
+        <input id="yearSlider" class="image-slider" type="range" min="0" max="5" value="0" />
+        <div id="yearBubble" class="year-bubble">2020</div>
+      </div>
+
+      <div class="image-wrapper">
+        <img id="sliderImage" src="https://atlatszo.hu/wp-content/uploads/2025/12/2020.jpg" alt="Batida 2020" />
+      </div>
+
+      <div id="yearLabel" class="year-label">2020</div>
+    </div>
+
+    <script>
+      (function () {
+        const images = [
+          { year: "2020", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2020.jpg" },
+          { year: "2021", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2021.jpg" },
+          { year: "2022", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2022.jpg" },
+          { year: "2023", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2023.jpg" },
+          { year: "2024", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2024.jpg" },
+          { year: "2025", src: "https://atlatszo.hu/wp-content/uploads/2025/12/2025.jpg" }
+        ];
+
+        const slider = document.getElementById("yearSlider");
+        const image = document.getElementById("sliderImage");
+        const label = document.getElementById("yearLabel");
+        const bubble = document.getElementById("yearBubble");
+
+        function update() {
+          const idx = Number(slider.value);
+          const max = Number(slider.max);
+
+          image.src = images[idx].src;
+          image.alt = `Batida ${images[idx].year}`;
+          label.textContent = images[idx].year;
+          bubble.textContent = images[idx].year;
+
+          // buborék pozíció: a slider szélességén belül, thumb-hoz közelítve
+          const sliderRect = slider.getBoundingClientRect();
+          const bubbleRect = bubble.getBoundingClientRect();
+          const percent = idx / max;
+
+          const leftPx = percent * sliderRect.width;
+          const clamped = Math.max(bubbleRect.width / 2, Math.min(sliderRect.width - bubbleRect.width / 2, leftPx));
+          bubble.style.left = clamped + "px";
+        }
+
+        slider.addEventListener("input", update);
+        window.addEventListener("resize", update);
+        update();
+      })();
+    </script>
+  </body>
+</html>
